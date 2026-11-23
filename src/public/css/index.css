@@ -1,0 +1,509 @@
+/* ==========================================
+  全体の共通設定（リセット＆ベース）
+  ========================================== */
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+    background-color: #fcf6f8;
+    /* アプリの背景に近い、優しいピンクがかった白 */
+    color: #4a4a4a;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+  ヘッダー（一番上のタイトル部分）
+  ========================================== */
+header {
+    background-color: #f19ec2;
+    /* アプリのテーマカラーの可愛いピンク */
+    color: #ffffff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header__inner h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* ==========================================
+  メインコンテンツの外枠（真ん中に寄せる設定）
+  ========================================== */
+.memory__inner {
+    max-width: 700px;
+    /* 画面が広がりすぎないように制限 */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ==========================================
+  見出しエリア（思い出帳・大切な思い出を〜）
+  ========================================== */
+.memory__heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.memory__subtitle {
+    color: #f19ec2;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.memory__title {
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+    color: #333333;
+}
+
+.memory__text {
+    font-size: 0.95rem;
+    color: #777777;
+    margin: 0;
+}
+
+.memory__button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    
+}
+
+/* 「思い出を残す」ボタン（既存のピンクボタン） */
+.memory_create-button {
+    display: inline-block;
+    background-color: #f19ec2;
+    color: #ffffff;
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 3px 6px rgba(241, 158, 194, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.memory_create-button:hover {
+    background-color: #e083aa;
+    transform: translateY(-1px);
+}
+
+/* 検索フォーム（初期状態は非表示） */
+.memory_search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 虫眼鏡ボタンを押したら横並びで表示 */
+.memory_search-form.is-open {
+    display: flex;
+}
+
+/* 検索の入力欄 */
+.memory_search-input {
+    padding: 9px 16px;
+    border-radius: 25px;
+    border: 1.5px solid #f19ec2;
+    background-color: #ffffff;
+    outline: none;
+    font-size: 0.9rem;
+    color: #555555;
+    box-shadow: 0 3px 6px rgba(241, 158, 194, 0.15);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.memory_search-input:focus {
+    border-color: #e083aa;
+    box-shadow: 0 3px 8px rgba(241, 158, 194, 0.35);
+}
+
+/* 「検索」ボタン（思い出を残すボタンと統一） */
+.memory_search-submit {
+    background-color: #f19ec2;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(241, 158, 194, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.memory_search-submit:hover {
+    background-color: #e083aa;
+    transform: translateY(-1px);
+}
+
+/* 「クリア」ボタン（控えめな白×ピンク枠で統一） */
+.memory_search-clear {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #f19ec2;
+    border: 1.5px solid #f19ec2;
+    padding: 8px 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    box-shadow: 0 3px 6px rgba(241, 158, 194, 0.15);
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.memory_search-clear:hover {
+    background-color: #fdf2f7;
+    color: #e083aa;
+    border-color: #e083aa;
+    transform: translateY(-1px);
+}
+
+/* 丸い虫眼鏡ボタン（既存のピンクと統一） */
+.memory_search-toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1.5px solid #f19ec2;
+    background-color: #ffffff;
+    color: #f19ec2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(241, 158, 194, 0.25);
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.memory_search-toggle:hover {
+    background-color: #f19ec2;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+  思い出リスト（カードが並ぶエリア）
+  ========================================== */
+.memory__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* カードとカードの間隔 */
+}
+
+/* 個々の思い出カード白枠 */
+.memory__card {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 16px;
+    /* 角を丸くしてアプリ感を出す */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s;
+}
+
+/* カードにマウスを乗せたときに少し浮き上がらせる */
+.memory__card:hover {
+    transform: translateY(-3px);
+}
+
+/* --- カードの左側：画像エリア --- */
+.memory__card__image {
+    width: 35%;
+    min-width: 140px;
+    background-color: #fafafa;
+    position: relative;
+}
+
+.memory__card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 画像の比率を崩さずにぴったりはめる */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* --- カードの右側：文字エリア --- */
+.memory__card__content {
+    padding: 22px;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.memory__card__date {
+    font-size: 0.85rem;
+    color: #a5a5a5;
+    margin: 0 0 6px 0;
+    font-weight: 500;
+}
+
+.memory__card__title {
+    font-size: 1.25rem;
+    margin: 0 0 10px 0;
+    color: #2b2b2b;
+}
+
+.memory__card__text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555555;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+    /* 本文が短くても、下のリンクを一番下に押し下げる設定 */
+}
+
+/* --- 「思い出を見る」リンク --- */
+.memory__card__link {
+    align-self: flex-start;
+    color: #f19ec2;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.88rem;
+    border-bottom: 2px solid #f19ec2;
+    /* 下線をつけてボタンっぽく見せる */
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.memory__card__link:hover {
+    color: #e083aa;
+    border-color: #e083aa;
+}
+
+/* ==========================================
+  スマホ表示用の設定（画面が狭いときは縦並びにする）
+  ========================================== */
+
+    .memory__card {
+        flex-direction: column;
+        /* 左右並びから上下並びに変更 */
+    }
+
+    .memory__card__image {
+        width: 100%;
+        height: 180px;
+        /* スマホ時の画像の高さ */
+    }
+
+    .memory__card__content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .memory__container {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+    
+        /* 左側：サイドバー（カレンダー）の幅 */
+        .memory__sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+    
+        /* 右側：思い出リストの幅 */
+        .memory__list {
+            flex-grow: 1;
+        }
+    
+        /* ==========================================
+      カレンダー単体の可愛いデザイン
+      ========================================== */
+        .calendar-wrap {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+    
+        .calendar__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 0 5px;
+        }
+    
+        .calendar__title {
+            font-weight: bold;
+            color: #4a4a4a;
+            font-size: 1rem;
+        }
+    
+        .calendar__arrow {
+            background: none;
+            border: none;
+            color: #f19ec2;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+    
+        .calendar__table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+    
+        .calendar__table th {
+            padding-bottom: 10px;
+            color: #888888;
+            font-weight: normal;
+        }
+    
+        .calendar__table td {
+            padding: 8px 0;
+            color: #4a4a4a;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+        }
+
+                .calendar__table td a {
+                    color: #cccccc;
+                    text-decoration: none;
+                }
+
+                .calendar__table th.sun {
+                    color: #f19e9e;
+                }
+
+                                .calendar__table th.sat {
+                                    color: #9eb8f1;
+                                }
+    
+        /* 土日の色分け */
+        .calendar__table .sun a {
+            color: #f19e9e;
+        }
+    
+        .calendar__table .sat a {
+            color: #9eb8f1;
+        }
+    
+        .calendar__table .gray {
+            color: #cccccc;
+        }
+    
+        /* 今日の日付（ピンクの丸枠） */
+        .calendar__table .today {
+            background-color: #f19ec2;
+            color: #ffffff;
+            font-weight: bold;
+        }
+    
+        /* 投稿がある日のマーク（グレーの丸枠） */
+        .calendar__table .active-day {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+
+
+        
+@media (max-width: 768px) {
+
+    /* 画面全体の左右余白を統一 */
+    .memory_inner {
+        width: 100%;
+        padding: 0 16px;
+        margin: 24px auto;
+        box-sizing: border-box;
+    }
+
+    /* カレンダーと思い出カードを縦並び＆まったく同じ幅に揃える */
+    .memory__container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .memory__sidebar,
+    .memory__list {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* カレンダーとカードの外枠を100%で完全に一致させる */
+    .calendar-wrap,
+    .memory_card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+    }
+
+    /* 思い出カードの中身（上：写真、下：文字） */
+    .memory_card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .memory_card__image {
+        width: 100% !important;
+        min-width: 100% !important;
+        height: 200px;
+    }
+
+    .memory_card__content {
+        width: 100% !important;
+        padding: 18px 20px;
+        box-sizing: border-box;
+    }
+
+    /* 上の検索バーと「思い出を残す」ボタンもまったく同じ幅で左右に並べる */
+    .memory_inner .memory_button {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 6px;
+        margin-bottom: 20px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .memory_search-form {
+        flex: 1;
+        min-width: 0;
+        gap: 4px;
+    }
+
+    .memory_search-input {
+        flex: 1;
+        min-width: 0;
+        width: 100%;
+        padding: 7px 10px;
+        font-size: 0.8rem;
+    }
+
+    .memory_search-submit,
+    .memory_search-clear {
+        padding: 7px 10px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .memory_create-button {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+}

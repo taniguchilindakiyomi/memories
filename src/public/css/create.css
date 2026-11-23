@@ -1,0 +1,192 @@
+/* ==========================================
+  ベース設定
+  ========================================== */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #fcf6f8;
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+    overflow: hidden;
+    /* 画面全体の余計なスクロールを防ぐ */
+}
+
+/* フォーム全体の枠（縦いっぱいに広げる） */
+.diary-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 500px;
+    /* スマホ風の横幅に制限 */
+    margin: 0 auto;
+    background-color: #ffffff;
+    position: relative;
+}
+
+/* ==========================================
+  ピンクの可愛いヘッダー
+  ========================================== */
+.diary-header {
+    background-color: #f19ec2;
+    /* アプリとお揃いのピンク */
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* ✕ 閉じるボタン */
+.diary-header__close {
+    color: #4a4a4a;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* 中央の日付カプセル */
+.diary-header__date-badge {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 4px 20px;
+}
+
+.diary-header__date-badge input {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+    width: 100px;
+}
+
+.diary-header__spacer {
+    width: 36px;
+    /* ✕ボタンと幅を合わせて中央寄せを保つ */
+}
+
+/* ==========================================
+  文字入力エリア（メイン）
+  ========================================== */
+.diary-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.diary-create__image {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.diary-create__image img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+/* タイトル入力欄 */
+.diary-input__title-wrap {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #fceef3;
+}
+
+.diary-input__title {
+    width: 100%;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 10px 0;
+    outline: none;
+    color: #333333;
+}
+
+/* 本文入力欄（残りすべての縦幅を埋める） */
+.diary-input__text-wrap {
+    flex: 1;
+}
+
+.diary-input__text {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+    color: #4a4a4a;
+}
+
+/* ==========================================
+  下部のボタンエリア（完了・画像追加）
+  ========================================== */
+.diary-footer {
+    position: absolute;
+    bottom: 20px;
+    /* 1枚目のスクショ通り、少し上に浮かせる */
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    /* 下の入力欄を邪魔しない設定 */
+}
+
+/* ボタンの共通デザイン */
+.diary-btn {
+    pointer-events: auto;
+    /* ボタンはクリックできるように戻す */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.diary-btn:active {
+    transform: scale(0.96);
+}
+
+/* 完了ボタン（左側） */
+.diary-btn--submit {
+    color: #f19ec2;
+    /* 文字色をピンクに */
+}
+
+/* 画像追加ボタン（右側） */
+.diary-btn--image {
+    color: #f19ec2;
+}
+
+.validation-error {
+    color: #e57399;
+    font-size: 14px;
+    margin-top: 8px;
+}

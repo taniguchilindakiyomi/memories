@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MemoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MemoriesController::class, 'index']);
+
+Route::get('/create', [MemoriesController::class, 'create']);
+
+Route::post('/memories', [MemoriesController::class, 'store']);
+
+Route::get('/detail/{id}', [MemoriesController::class, 'detail']);
+
+Route::get('/edit/{id}', [MemoriesController::class, 'edit']);
+
+Route::put('/memories/{id}', [MemoriesController::class, 'update']);
+
+Route::delete('/memories/{id}', [MemoriesController::class, 'destroy']);
